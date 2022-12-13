@@ -12,12 +12,12 @@ namespace issue_tracker.DataAccess
             {
             _options = options;
             }
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<Issue> Issues { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
-        public DbSet<ProjectComment> ProjectComments { get; set; }
-        public DbSet<IssueComment> IssueComments { get; set; }
+        public DbSet<Company>? Companies { get; set; }
+        public DbSet<Project>? Projects { get; set; }
+        public DbSet<Issue>? Issues { get; set; }
+        public DbSet<Notification>? Notifications { get; set; }
+        public DbSet<CommentProject>? CommentProjects { get; set; }
+        public DbSet<CommentIssue>? CommentIssues { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
@@ -25,9 +25,9 @@ namespace issue_tracker.DataAccess
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
-            modelBuilder.ApplyConfiguration(new ProjectCommentConfiguration());
+            modelBuilder.ApplyConfiguration(new CommentProjectConfiguration());
             modelBuilder.ApplyConfiguration(new IssueConfiguration());
-            modelBuilder.ApplyConfiguration(new IssueCommentConfiguration());
+            modelBuilder.ApplyConfiguration(new CommentIssueConfiguration());
             }
         }
     }

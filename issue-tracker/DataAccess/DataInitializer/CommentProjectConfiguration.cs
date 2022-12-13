@@ -1,31 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-internal class IssueCommentConfiguration : IEntityTypeConfiguration<IssueComment>
+internal class CommentProjectConfiguration : IEntityTypeConfiguration<CommentProject>
     {
-    public void Configure(EntityTypeBuilder<IssueComment> builder)
+    public void Configure(EntityTypeBuilder<CommentProject> builder)
         {
         builder.HasData(
-            new IssueComment
+            new CommentProject
                 {
                 Id = 1,
-                Name = "Very important Issue Comment 1",
+                Name = "Very important Project Comment 1",
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non rutrum ligula. Quisque ac nibh et felis vestibulum tincidunt. Mauris id vulputate risus.",
-                IssueId = 1,
+                ProjectId = 1,
                 },
-            new IssueComment
+            new CommentProject
                 {
                 Id = 2,
-                Name = "Very important Issue Comment 2",
+                Name = "Very important Project Comment 2",
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non rutrum ligula. Quisque ac nibh et felis vestibulum tincidunt. Mauris id vulputate risus.",
-                IssueId = 1,
+                ProjectId = 1,
                 },
-            new IssueComment
+            new CommentProject
                 {
                 Id = 3,
-                Name = "Very important Issue Comment 3",
+                Name = "Very important Project Comment 3",
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non rutrum ligula. Quisque ac nibh et felis vestibulum tincidunt. Mauris id vulputate risus.",
-                IssueId = 1,
+                ProjectId = 1,
                 }
             );
         }

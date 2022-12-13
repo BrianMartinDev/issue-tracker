@@ -10,5 +10,6 @@
         public Company? Company { get; set; }
         public virtual IEnumerable<Issue>? Issues { get; set; }
         public virtual ICollection<AppUser>? AppUsers { get; set; }
+        public virtual IEnumerable<CommentProject>? CommentProjects { get; set; }
         }
     }

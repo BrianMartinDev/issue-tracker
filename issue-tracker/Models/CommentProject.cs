@@ -1,11 +1,11 @@
 ﻿using issue_tracker.Models;
 
-public class IssueComment
+public class CommentProject
     {
     public int Id { get; set; }
-    public int IssueId { get; set; }
+    public int ProjectId { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     //-- Navigation Properties
-    public Issue? Issue { get; set; }
+    public Project? Project { get; set; }
     }

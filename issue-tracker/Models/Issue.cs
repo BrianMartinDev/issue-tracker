@@ -8,6 +8,6 @@
         public string? Description { get; set; }
         //-- Navigation Properties
         public Project? Project { get; set; }
-        public virtual IEnumerable<IssueComment>? IssueComments { get; set; }
+        public virtual IEnumerable<CommentIssue>? CommentIssues { get; set; }
         }
     }

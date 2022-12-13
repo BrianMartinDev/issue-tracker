@@ -1,6 +1,11 @@
+
+
 using issue_tracker.DataAccess;
-using Microsoft.AspNetCore.Identity;
+using issue_tracker.DataAccess.Repository;
+using issue_tracker.DataAccess.Repository.IRepository;
+using issue_tracker.DataAccess.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging.Abstractions;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,11 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddIdentityCore<AppUser>()
-    .AddRoles<IdentityRole>()
-    .AddTokenProvider<DataProtectorTokenProvider<AppUser>>("TrackerApplication")
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+//builder.Services.AddIdentityCore<AppUser>()
+//    .AddRoles<IdentityRole>()
+//    .AddTokenProvider<DataProtectorTokenProvider<AppUser>>("TrackerApplication")
+//    .AddEntityFrameworkStores<ApplicationDbContext>()
+//    .AddDefaultTokenProviders();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,6 +29,14 @@ builder.Services.AddCors(options =>
         .AllowAnyMethod());
 });
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSingleton<ILoggerFactory, NullLoggerFactory>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IIssueRepository, IssueRepository>();
+builder.Services.AddScoped<ICommentProjectRepository, CommentProjectRepository>();
+builder.Services.AddScoped<ICommentIssueRepository, CommentIssueRepository>();
 
 var app = builder.Build();
 
