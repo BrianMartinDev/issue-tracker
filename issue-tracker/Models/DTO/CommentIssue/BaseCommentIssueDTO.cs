@@ -1,8 +1,7 @@
-﻿namespace issue_tracker.Models.DTO.Issue
+﻿namespace issue_tracker.Models.DTO.CommentIssue
     {
-    public class BaseIssueDTO
+    public class BaseCommentIssueDTO
         {
-        public int ProjectId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         }

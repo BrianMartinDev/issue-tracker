@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace issue_tracker.Models.DTO.Company
+namespace issue_tracker.Models.DTO.CommentProject
     {
-    public class UpdateCompanyDTO
+    public class UpdateCommentProjectDTO
         {
         [Required]
         public int Id { get; set; }

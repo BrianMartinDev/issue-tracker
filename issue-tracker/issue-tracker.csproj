@@ -31,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\ViewControllers\" />
-    <Folder Include="DataAccess\UnitOfWork\" />
   </ItemGroup>
 
 </Project>

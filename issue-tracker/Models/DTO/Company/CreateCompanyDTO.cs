@@ -1,6 +1,6 @@
 ﻿namespace issue_tracker.Models.DTO.Company
     {
-    public class CreateCompanyDTO
+    public class CreateCompanyDTO : BaseCompanyDTO
         {
         }
     }

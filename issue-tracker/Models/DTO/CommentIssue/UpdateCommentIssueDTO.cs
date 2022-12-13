@@ -1,8 +1,8 @@
 ﻿using Microsoft.Build.Framework;
 
-namespace issue_tracker.Models.DTO.Project
+namespace issue_tracker.Models.DTO.CommentIssue
     {
-    public class GetProjectDTO
+    public class UpdateCommentIssueDTO
         {
         [Required]
         public int Id { get; set; }

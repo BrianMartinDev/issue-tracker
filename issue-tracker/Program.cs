@@ -5,7 +5,6 @@ using issue_tracker.DataAccess.Repository;
 using issue_tracker.DataAccess.Repository.IRepository;
 using issue_tracker.DataAccess.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging.Abstractions;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,7 +29,6 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddSingleton<ILoggerFactory, NullLoggerFactory>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
