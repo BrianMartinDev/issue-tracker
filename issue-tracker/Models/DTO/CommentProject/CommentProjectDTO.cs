@@ -1,4 +1,5 @@
-﻿using Microsoft.Build.Framework;
+﻿using issue_tracker.Models.DTO.Project;
+using Microsoft.Build.Framework;
 
 namespace issue_tracker.Models.DTO.CommentProject
     {
@@ -6,5 +7,7 @@ namespace issue_tracker.Models.DTO.CommentProject
         {
         [Required]
         public int Id { get; set; }
+        [Required]
+        public virtual ProjectDTO ProjectId { get; set; }
         }
     }

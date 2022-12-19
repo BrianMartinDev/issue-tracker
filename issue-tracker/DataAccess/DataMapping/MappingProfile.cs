@@ -36,7 +36,7 @@ namespace issue_tracker.DataAccess.DataMapping
             // CommentProject Model Mapping
             CreateMap<CommentProject, CommentProjectDTO>().ReverseMap();
             CreateMap<CommentProject, GetCommentProjectDTO>().ReverseMap();
-            CreateMap<CommentIssue, BaseCommentProjectDTO>().ReverseMap();
+            CreateMap<CommentProject, BaseCommentProjectDTO>().ReverseMap();
             CreateMap<CommentProject, CreateCommentProjectDTO>().ReverseMap();
             CreateMap<CommentProject, UpdateCommentProjectDTO>().ReverseMap();
 

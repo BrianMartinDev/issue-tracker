@@ -2,7 +2,7 @@
 
 namespace issue_tracker.Models.DTO.Project
     {
-    public class GetProjectDTO
+    public class GetProjectDTO : BaseProjectDTO
         {
         [Required]
         public int Id { get; set; }

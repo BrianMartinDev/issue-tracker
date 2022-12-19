@@ -1,9 +1,12 @@
-﻿namespace issue_tracker.Models.DTO.Project
+﻿using Microsoft.Build.Framework;
+
+namespace issue_tracker.Models.DTO.Project
     {
     public class BaseProjectDTO
         {
-        public int CompanyId { get; set; }
+        [Required]
         public string? Name { get; set; }
+        [Required]
         public string? Description { get; set; }
         }
     }

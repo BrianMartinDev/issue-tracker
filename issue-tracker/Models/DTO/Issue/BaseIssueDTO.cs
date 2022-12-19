@@ -1,9 +1,12 @@
-﻿namespace issue_tracker.Models.DTO.Issue
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace issue_tracker.Models.DTO.Issue
     {
     public class BaseIssueDTO
         {
-        public int ProjectId { get; set; }
+        [Required]
         public string? Name { get; set; }
+        [Required]
         public string? Description { get; set; }
         }
     }

@@ -6,6 +6,5 @@ namespace issue_tracker.Models.DTO.CommentIssue
         {
         [Required]
         public int Id { get; set; }
-
         }
     }
