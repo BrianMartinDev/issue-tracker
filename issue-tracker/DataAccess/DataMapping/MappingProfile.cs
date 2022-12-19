@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using issue_tracker.Models;
 using issue_tracker.Models.DTO.AppUser;
+using issue_tracker.Models.DTO.CommentIssue;
+using issue_tracker.Models.DTO.CommentProject;
 using issue_tracker.Models.DTO.Company;
 using issue_tracker.Models.DTO.Project;
 
@@ -29,6 +31,20 @@ namespace issue_tracker.DataAccess.DataMapping
             CreateMap<Issue, BaseProjectDTO>().ReverseMap();
             CreateMap<Issue, CreateProjectDTO>().ReverseMap();
             CreateMap<Issue, UpdateProjectDTO>().ReverseMap();
+
+            // CommentProject Model Mapping
+            CreateMap<CommentProject, CommentProjectDTO>().ReverseMap();
+            CreateMap<CommentProject, GetCommentProjectDTO>().ReverseMap();
+            CreateMap<CommentIssue, BaseCommentProjectDTO>().ReverseMap();
+            CreateMap<CommentProject, CreateCommentProjectDTO>().ReverseMap();
+            CreateMap<CommentProject, UpdateCommentProjectDTO>().ReverseMap();
+
+            // CommentIssue Model Mapping
+            CreateMap<CommentIssue, CommentIssueDTO>().ReverseMap();
+            CreateMap<CommentIssue, GetCommentIssueDTO>().ReverseMap();
+            CreateMap<CommentIssue, BaseCommentIssueDTO>().ReverseMap();
+            CreateMap<CommentIssue, CreateCommentIssueDTO>().ReverseMap();
+            CreateMap<CommentIssue, UpdateCommentIssueDTO>().ReverseMap();
 
             // AppUser Model Mapping
             CreateMap<AppUserDTO, AppUser>().ReverseMap();
