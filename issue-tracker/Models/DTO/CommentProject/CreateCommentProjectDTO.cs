@@ -1,6 +1,6 @@
 ﻿namespace issue_tracker.Models.DTO.CommentProject
     {
-    public class CreateCommentProjectDTO
+    public class CreateCommentProjectDTO : BaseCommentProjectDTO
         {
         }
     }

@@ -2,7 +2,7 @@
 
 namespace issue_tracker.Models.DTO.CommentProject
     {
-    public class UpdateCommentProjectDTO
+    public class UpdateCommentProjectDTO : BaseCommentProjectDTO
         {
         [Required]
         public int Id { get; set; }

@@ -9,8 +9,6 @@ namespace issue_tracker.Models.DTO.Project
         {
         [Required]
         public int Id { get; set; }
-        [Required]
-        public int CompanyId { get; set; }
         //-- Navigation Properties
         public virtual IEnumerable<IssueDTO>? Issues { get; set; }
         public virtual ICollection<AppUserDTO>? AppUsers { get; set; }

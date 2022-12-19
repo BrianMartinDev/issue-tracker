@@ -5,8 +5,8 @@
         ICompanyRepository CompanyRepository { get; }
         IProjectRepository ProjectRepository { get; }
         IIssueRepository IssueRepository { get; }
-        ICommentIssueRepository IssueCommentRepository { get; }
-        ICommentProjectRepository ProjectCommentRepository { get; }
+        ICommentIssueRepository CommentIssueRepository { get; }
+        ICommentProjectRepository CommentProjectRepository { get; }
 
         Task<int> CompletedAsync();
         }

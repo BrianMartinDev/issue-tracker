@@ -1,6 +1,6 @@
 ﻿namespace issue_tracker.Models.DTO.Project
     {
-    public class CreateProjectDTO
+    public class CreateProjectDTO : BaseProjectDTO
         {
         }
     }

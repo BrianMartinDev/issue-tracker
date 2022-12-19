@@ -7,8 +7,6 @@ namespace issue_tracker.Models.DTO.Issue
         {
         [Required]
         public int Id { get; set; }
-        [Required]
-        public int ProjectId { get; set; }
         public virtual IEnumerable<CommentIssueDTO>? CommentIssues { get; set; }
         }
     }

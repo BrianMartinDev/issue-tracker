@@ -13,14 +13,14 @@ namespace issue_tracker.DataAccess.UnitOfWork
             CompanyRepository = new CompanyRepository(context);
             ProjectRepository = new ProjectRepository(context);
             IssueRepository = new IssueRepository(context);
-            IssueCommentRepository = new CommentIssueRepository(context);
-            ProjectCommentRepository = new CommentProjectRepository(context);
+            CommentIssueRepository = new CommentIssueRepository(context);
+            CommentProjectRepository = new CommentProjectRepository(context);
             }
         public ICompanyRepository CompanyRepository { get; set; }
         public IProjectRepository ProjectRepository { get; private set; }
         public IIssueRepository IssueRepository { get; private set; }
-        public ICommentIssueRepository IssueCommentRepository { get; private set; }
-        public ICommentProjectRepository ProjectCommentRepository { get; private set; }
+        public ICommentIssueRepository CommentIssueRepository { get; private set; }
+        public ICommentProjectRepository CommentProjectRepository { get; private set; }
 
         public async Task<int> CompletedAsync()
             {

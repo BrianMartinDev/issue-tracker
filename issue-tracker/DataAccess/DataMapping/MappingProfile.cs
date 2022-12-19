@@ -4,6 +4,7 @@ using issue_tracker.Models.DTO.AppUser;
 using issue_tracker.Models.DTO.CommentIssue;
 using issue_tracker.Models.DTO.CommentProject;
 using issue_tracker.Models.DTO.Company;
+using issue_tracker.Models.DTO.Issue;
 using issue_tracker.Models.DTO.Project;
 
 namespace issue_tracker.DataAccess.DataMapping
@@ -26,11 +27,11 @@ namespace issue_tracker.DataAccess.DataMapping
             CreateMap<Project, CreateProjectDTO>().ReverseMap();
             CreateMap<Project, UpdateProjectDTO>().ReverseMap();
             // Issue Model Mapping
-            CreateMap<Issue, ProjectDTO>().ReverseMap();
-            CreateMap<Issue, GetProjectDTO>().ReverseMap();
-            CreateMap<Issue, BaseProjectDTO>().ReverseMap();
-            CreateMap<Issue, CreateProjectDTO>().ReverseMap();
-            CreateMap<Issue, UpdateProjectDTO>().ReverseMap();
+            CreateMap<Issue, IssueDTO>().ReverseMap();
+            CreateMap<Issue, GetIssueDTO>().ReverseMap();
+            CreateMap<Issue, BaseIssueDTO>().ReverseMap();
+            CreateMap<Issue, CreateIssueDTO>().ReverseMap();
+            CreateMap<Issue, UpdateIssueDTO>().ReverseMap();
 
             // CommentProject Model Mapping
             CreateMap<CommentProject, CommentProjectDTO>().ReverseMap();

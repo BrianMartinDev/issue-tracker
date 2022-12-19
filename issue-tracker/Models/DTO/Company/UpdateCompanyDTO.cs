@@ -2,7 +2,7 @@
 
 namespace issue_tracker.Models.DTO.Company
     {
-    public class UpdateCompanyDTO
+    public class UpdateCompanyDTO : BaseCompanyDTO
         {
         [Required]
         public int Id { get; set; }
