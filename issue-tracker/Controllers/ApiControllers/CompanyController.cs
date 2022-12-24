@@ -2,10 +2,12 @@
 using issue_tracker.DataAccess.Repository.IRepository;
 using issue_tracker.Models;
 using issue_tracker.Models.DTO.Company;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace issue_tracker.Controllers.ApiControllers
     {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CompanyController : ControllerBase
@@ -20,15 +22,31 @@ namespace issue_tracker.Controllers.ApiControllers
             _logger = logger;
             _mapper = mapper;
             }
+        // GET api/Company/{id}
+        [HttpGet("ProjectListByCompanyId/{id}")]
+        public async Task<ActionResult<Company>> ProjectList(int id)
+            {
+            try
+                {
+                var company = await _unitOfWork.CompanyRepository.ProjectListByCompanyId(id);
+                var companyDto = _mapper.Map<Company>(company);
+                return Ok(companyDto);
+                }
+            catch (Exception ex)
+                {
+                _logger.LogError(ex, "{Controller} All function error", typeof(CompanyController));
+                return BadRequest(ex);
+                }
+            }
 
         // GET: api/Company
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CompanyDTO>>> GetCompanyList()
+        public async Task<ActionResult<IEnumerable<GetCompanyDTO>>> GetCompanyList()
             {
             try
                 {
                 var company = await _unitOfWork.CompanyRepository.GetAllAsync();
-                var companyDto = _mapper.Map<IEnumerable<CompanyDTO>>(company);
+                var companyDto = _mapper.Map<IEnumerable<GetCompanyDTO>>(company);
                 return Ok(companyDto);
                 }
             catch (Exception ex)
@@ -40,12 +58,12 @@ namespace issue_tracker.Controllers.ApiControllers
 
         // GET api/Company/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<CompanyDTO>> Get(int id)
+        public async Task<ActionResult<GetCompanyDTO>> Get(int id)
             {
             try
                 {
                 var company = await _unitOfWork.CompanyRepository.GetAsync(id);
-                var companyDto = _mapper.Map<CompanyDTO>(company);
+                var companyDto = _mapper.Map<GetCompanyDTO>(company);
                 return Ok(company);
                 }
             catch (Exception ex)

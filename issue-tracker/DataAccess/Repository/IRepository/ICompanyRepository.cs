@@ -4,6 +4,6 @@ namespace issue_tracker.DataAccess.Repository.IRepository
     {
     public interface ICompanyRepository : IGenericRepository<Company>
         {
-        Task<IEnumerable<Company>> GetCompanyProjects();
+        Task<Company> ProjectListByCompanyId(int id);
         }
     }

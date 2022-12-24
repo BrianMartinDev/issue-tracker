@@ -1,10 +1,11 @@
 ﻿using issue_tracker.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace issue_tracker.DataAccess
     {
-    public class ApplicationDbContext : IdentityDbContext<AppUser>
+    public class ApplicationDbContext : IdentityUserContext<IdentityUser>
         {
         private readonly DbContextOptions<ApplicationDbContext> _options;
 
@@ -18,7 +19,7 @@ namespace issue_tracker.DataAccess
         public DbSet<Notification>? Notifications { get; set; }
         public DbSet<CommentProject>? CommentProjects { get; set; }
         public DbSet<CommentIssue>? CommentIssues { get; set; }
-
+        public DbSet<UserApiKey> UserApiKeys { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
             base.OnModelCreating(modelBuilder);

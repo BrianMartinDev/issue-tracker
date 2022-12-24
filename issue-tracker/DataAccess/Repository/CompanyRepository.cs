@@ -14,9 +14,12 @@ namespace issue_tracker.DataAccess.Repository
             {
             }
 
-        public async Task<IEnumerable<Company>> GetCompanyProjects()
+        public async Task<Company> ProjectListByCompanyId(int id)
             {
-            return await _context.Companies.Include(o => o.Projects).ToListAsync();
+            var obj = await _context.Companies.Include(o => o.Projects)
+                //.Where(o => o.Id == id)
+                .FirstOrDefaultAsync(x => x.Id == id);
+            return obj;
             }
         }
     }

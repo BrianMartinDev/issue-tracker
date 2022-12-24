@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using issue_tracker.Models;
+using issue_tracker.Models.AppUser;
 using issue_tracker.Models.DTO.AppUser;
 using issue_tracker.Models.DTO.CommentIssue;
 using issue_tracker.Models.DTO.CommentProject;
@@ -8,7 +9,7 @@ using issue_tracker.Models.DTO.Issue;
 using issue_tracker.Models.DTO.Project;
 
 namespace issue_tracker.DataAccess.DataMapping
-    {
+{
     public class MappingProfile : Profile
         {
         public MappingProfile()
