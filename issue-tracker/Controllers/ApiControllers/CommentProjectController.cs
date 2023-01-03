@@ -27,7 +27,7 @@ namespace issue_tracker.Controllers.ApiControllers
             try
                 {
                 var commentProject = await _unitOfWork.CommentProjectRepository.GetAllAsync();
-                var commentProjectDto = _mapper.Map<CommentProjectDTO>(commentProject);
+                var commentProjectDto = _mapper.Map<IEnumerable<CommentProjectDTO>>(commentProject);
 
                 return Ok(commentProjectDto);
                 }
