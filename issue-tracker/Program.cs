@@ -13,11 +13,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
 using System.Text;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite(connectionString).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 //builder.Services.AddIdentityCore<AppUser>()
 //    .AddRoles<IdentityRole>()
 //    .AddTokenProvider<DataProtectorTokenProvider<AppUser>>("TrackerApplication")
@@ -53,13 +54,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll",
-        b => b.AllowAnyHeader()
-        .AllowAnyOrigin()
-        .AllowAnyMethod());
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll",
+//        b => b.AllowAnyHeader()
+//        .AllowAnyOrigin()
+//        .AllowAnyMethod());
+//});
+builder.Services.AddCors( );
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<ApiKeyService>();
@@ -80,7 +82,10 @@ if (app.Environment.IsDevelopment())
     }
 
 app.UseHttpsRedirection();
-app.UseCors("allowAll");
+app.UseCors(
+  options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader()
+      );
+//app.UseCors(options => options.WithOrigins("http://localhost:3000/").AllowAnyHeader().AllowAnyMethod());
 app.UseAuthentication();
 app.UseAuthorization();
 
