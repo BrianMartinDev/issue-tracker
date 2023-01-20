@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+    options.UseSqlServer(connectionString).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 //builder.Services.AddIdentityCore<AppUser>()
 //    .AddRoles<IdentityRole>()
 //    .AddTokenProvider<DataProtectorTokenProvider<AppUser>>("TrackerApplication")
@@ -61,7 +61,7 @@ builder.Services.AddSwaggerGen();
 //        .AllowAnyOrigin()
 //        .AllowAnyMethod());
 //});
-builder.Services.AddCors( );
+builder.Services.AddCors();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<ApiKeyService>();
@@ -82,9 +82,7 @@ if (app.Environment.IsDevelopment())
     }
 
 app.UseHttpsRedirection();
-app.UseCors(
-  options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader()
-      );
+app.UseCors(options => options.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 //app.UseCors(options => options.WithOrigins("http://localhost:3000/").AllowAnyHeader().AllowAnyMethod());
 app.UseAuthentication();
 app.UseAuthorization();
